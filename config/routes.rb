@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # resources :reviews
   get '/reviews' => 'reviews#index'
+  get '/reviews/:id' => 'reviews#show'
   get '/reviews/:id/edit' => 'reviews#index'
 
   # resources :user_books
