@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="/js/application.js"></script>
+
+  <title>BookWorms on Rails</title>
+</head>
+<body>
+<div id="content">
+  <!-- <header> -->
+
+
+    <div id="login-toolbar">
+      <a href="/">BookWorms</a><br>
+      <% if current_user %>
+      Hello, <a href="/user/<%=current_user.id%>"> <%= current_user.username.capitalize %></a> <img src="http://simpleicon.com/wp-content/uploads/book-1.png"> <a href="/logout">Logout</a>
+      <% else %>
+        <%= link_to "Login", login_path %>
+         || <%= link_to "Signup", signup_path %>
+      <% end %>
+
+    </div>
+
+  <!-- </header> -->
+
+  <%= yield %>
+<!-- </div> -->
+</body>
+</html>
+
+

@@ -1,0 +1,6 @@
+<p>Name <%= @user.username %><br>
+<%= @user.email %></p>
+<p><%= @user.books.each do |book| %>
+    <%= book.title %><br>
+  <% end %>
+</p>
