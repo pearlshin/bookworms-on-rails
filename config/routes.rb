@@ -1,24 +1,30 @@
 Rails.application.routes.draw do
 
-  # resources :users
-  get '/users' => 'users#index'
-  get '/users/:id' => 'users#show'
-  get '/login', to: 'users#login', as: 'login'
-  get '/signup', to: 'users#signup', as: 'signup'
+  resources :users
+  # get '/users' => 'users#index'
+  # get '/users/:id' => 'users#show'
 
-  # resources :books
-  get '/books' => 'books#index'
-  get '/books/new' => 'books#new'
-  get '/books/:id' => 'books#show'
+  # get '/login', to: 'users#login', as: 'login'
+  # post '/login', to: 'users#login'
 
-  # resources :reviews
-  get '/reviews' => 'reviews#index'
-  get '/reviews/:id' => 'reviews#show'
-  get '/reviews/:id/edit' => 'reviews#index'
+  # get '/signup', to: 'users#signup', as: 'signup'
 
-  # resources :user_books
-  get '/users' => 'users#index'
+  resources :books
+  # get '/books' => 'books#index'
+  # get '/books/new' => 'books#new'
+  # get '/books/:id' => 'books#show'
 
+  resources :reviews
+  # get '/reviews' => 'reviews#index'
+  # get '/reviews/:id' => 'reviews#show'
+  # get '/reviews/:id/edit' => 'reviews#index'
+
+  resources :user_books
+  # get '/users' => 'users#index'
+
+ get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  post '/signout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
