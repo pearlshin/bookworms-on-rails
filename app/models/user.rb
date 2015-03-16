@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
     self.id == item.user_id
     # true
   end
+
+  def authenticate_login(session_params)
+    if session_params[:email] == self.email
+      self.authenticate(session_params[:password])
+    else
+      false
+    end
+  end
 end
