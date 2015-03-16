@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="/js/application.js"></script>
 
   <title>BookWorms on Rails</title>
 </head>
 <body>
 <div id="content">
-  <!-- <header> -->
-
 
     <div id="login-toolbar">
-      <a href="/">BookWorms</a><br>
+      <h1>BookWorms</h1>
       <% if current_user %>
-      Hello, <a href="/user/<%=current_user.id%>"> <%= current_user.username.capitalize %></a> <img src="http://simpleicon.com/wp-content/uploads/book-1.png"> <a href="/logout">Logout</a>
+      Hello, current_user <img src="http://simpleicon.com/wp-content/uploads/book-1.png"> <a href="/logout">Logout</a>
       <% else %>
         <%= link_to "Login", login_path %>
-         || <%= link_to "Signup", signup_path %>
+         || <%= link_to "Signup", new_user_path %>
       <% end %>
-
     </div>
 
-  <!-- </header> -->
+    <div class="homepage-books">
+      <% @books.each do |book| %>
+        <a href="/book/<%= book.id %>"><%= book.title %></a> <br>
+      <% end %>
+    </div>
+
 
   <%= yield %>
 <!-- </div> -->
